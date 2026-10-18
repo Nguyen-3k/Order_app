@@ -1,9 +1,18 @@
+
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'services/supabase_test.dart';
 import 'core/theme/app_theme.dart';
 import 'screens/role_picker_screen.dart';
+import 'supabase_config.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SupabaseConfig.initialize();
+
+  await testSupabaseConnection();
+  
   runApp(const SmartOrderApp());
 }
 
